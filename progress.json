@@ -2,7 +2,7 @@
   "apps":[{
     "name"            : "dev",
     "script"          : "./bin/www",
-    "instances"       : -1,
+    "instances"       : "4",
     "exec_mode"       : "cluster",
     "env"             : {
       "NODE_ENV"  : "development"
@@ -10,14 +10,14 @@
     "error_file"      : "./log/pm2/err.log",
     "out_file"        : "./log/pm2/out.log",
     "log_file"        : "./log/pm2/combined.outerr.log",
-    "merge_logs"      : true,
     "log_type"        : "json",
+    "merge_logs"      : true,
     "log_date_format" : "YYYY-MM-DD HH:mm Z"
   },
     {
       "name"            : "production",
       "script"          : "./bin/www",
-      "instances"       : -1,
+      "instances"       : "4",
       "exec_mode"       : "cluster",
       "env"             : {
         "NODE_ENV"  : "production"

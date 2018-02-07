@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <!--<link rel='stylesheet' href='/stylesheets/style.css' />-->
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+
+    <input type="text" id="message" name="message" value="i am message">
+    <button id="sendBtn">发送消息</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script type="text/javascript">
+        var socket = io({
+            path:'/wsapp/web-alive'
+        });
+
+        document.getElementById('sendBtn').addEventListener('click',function(){
+            console.log('click');
+            socket.emit('speak',{
+                message:'hello'
+            });
+        });
+    </script>
+</body>
+</html>
