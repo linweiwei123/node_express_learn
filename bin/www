@@ -8,12 +8,19 @@ var app = require('../app');
 var debug = require('debug')('node-express-learn:server');
 var http = require('http');
 var appSocket = require('../routes/app-socket');
-
+var logger = require('../config/logger');
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port;
+
+if(process.env.NODE_APP_INSTANCE){
+  port = normalizePort(process.env.PORT || '300') + process.env.NODE_APP_INSTANCE;
+}
+else{
+  port = normalizePort(process.env.PORT || '3000')
+}
 app.set('port', port);
 
 /**
@@ -30,6 +37,8 @@ appSocket.init(io);
 /**
  * Listen on provided port, on all network interfaces.
  */
+
+logger.info('port:'+port);
 
 server.listen(port);
 server.on('error', onError);
