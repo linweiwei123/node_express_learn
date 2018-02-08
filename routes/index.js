@@ -1,43 +1,54 @@
-var express = require('express');
-var router = express.Router();
-
 var winstonLogger = require('../config/logger');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-    winstonLogger.debug('[debug],错误了');
-    winstonLogger.info('[info],错误了');
-    winstonLogger.error('[error],错误了');
+function init(app){
 
-    // process.nextTick(function(){
-    //     throw new Error('Kaboom!'); });
 
-    res.render('index',{title:'express'})
 
-});
+    /* GET home page. */
+    app.get('/', function(req, res, next) {
+        winstonLogger.debug('[debug],错误了');
+        winstonLogger.info('[info],错误了');
+        winstonLogger.error('[error],错误了');
 
-router.get('/wsapp', function(req, res, next) {
-    winstonLogger.debug('[debug],错误了');
-    winstonLogger.info('[info],错误了');
-    winstonLogger.error('[error],错误了');
+        // process.nextTick(function(){
+        //     throw new Error('Kaboom!'); });
 
-    // process.nextTick(function(){
-    //     throw new Error('Kaboom!'); });
+        res.render('index',{title:'express'})
 
-    res.render('chat',{title:'chat'})
+    });
 
-});
+    app.get('/wsapp', function(req, res, next) {
+        winstonLogger.debug('[debug],错误了');
+        winstonLogger.info('[info],错误了');
+        winstonLogger.error('[error],错误了');
 
-router.get('/wsapp/admin', function(req, res, next) {
-    winstonLogger.debug('[debug],错误了');
-    winstonLogger.info('[info],错误了');
-    winstonLogger.error('[error],错误了');
+        // process.nextTick(function(){
+        //     throw new Error('Kaboom!'); });
 
-    // process.nextTick(function(){
-    //     throw new Error('Kaboom!'); });
+        res.render('chat',{title:'chat'})
 
-    res.render('chartadmin',{title:'chatadmin'})
+    });
 
-});
+    app.get('/wsapp/admin', function(req, res, next) {
+        winstonLogger.debug('[debug],错误了');
+        winstonLogger.info('[info],错误了');
+        winstonLogger.error('[error],错误了');
 
-module.exports = router;
+        // process.nextTick(function(){
+        //     throw new Error('Kaboom!'); });
+
+        res.render('chartadmin',{title:'chatadmin'})
+
+    });
+
+    app.get('/any|some(thing)?|anyone', function(req, res, next) {
+
+        res.render('any/index')
+
+    });
+}
+
+
+module.exports = {
+    init
+};

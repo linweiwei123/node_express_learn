@@ -6,8 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mail = require('./cmodules/mail');
 var winstonLog = require('./config/logger');
-
-var index = require('./routes/index');
+// var vhost = require('vhost');
+// var admin = express.Router();
+var router = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
@@ -24,7 +25,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+//子域名
+// app.use(vhost('admin.*',admin));
+// // 创建 admin 的路由； 它们可以在任何地方定义
+// admin.get('/', function(req, res){
+//     res.render('admin/index');
+// });
+router.init(app);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
