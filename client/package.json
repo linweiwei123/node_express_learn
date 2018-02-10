@@ -1,0 +1,13 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel watch ./js/yitalautil-c.js",
+    "build": "parcel build ./js/yitalautil-c.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
