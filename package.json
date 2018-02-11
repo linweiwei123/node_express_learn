@@ -24,6 +24,7 @@
     "serve-favicon": "~2.4.5",
     "socket.io": "^2.0.4",
     "vhost": "^3.0.2",
-    "winston": "^2.4.0"
+    "winston": "^2.4.0",
+    "yitala-util": "^1.0.1"
   }
 }

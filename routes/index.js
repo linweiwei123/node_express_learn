@@ -1,4 +1,5 @@
 var winstonLogger = require('../config/logger');
+var yitala = require('yitala-util');
 
 function init(app){
 
@@ -6,13 +7,9 @@ function init(app){
 
     /* GET home page. */
     app.get('/', function(req, res, next) {
-        winstonLogger.debug('[debug],错误了');
-        winstonLogger.info('[info],错误了');
-        winstonLogger.error('[error],错误了');
-
         // process.nextTick(function(){
         //     throw new Error('Kaboom!'); });
-
+        yitala.speak();
         res.render('index',{title:'express'})
 
     });
